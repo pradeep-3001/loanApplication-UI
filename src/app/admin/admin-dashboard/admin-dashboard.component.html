@@ -1,0 +1,47 @@
+<div class="container mt-4">
+    <h2 class="fw-bold">Admin Dashboard</h2>
+    <p class="text-muted">Monitor system statistics and manage loan operations</p>
+  
+    <!-- Statistics Cards -->
+    <div class="row">
+      <div class="col-md-3" *ngFor="let stat of stats">
+        <div class="card shadow-sm mb-4">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">{{ stat.title }}</h5>
+            <p class="display-5 fw-bold text-primary">{{ stat.count }}</p>
+            <a [routerLink]="stat.link" class="btn btn-outline-primary btn-sm">{{ stat.button }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Quick Actions
+    <div class="card shadow-sm mt-4">
+      <div class="card-body">
+        <h5 class="card-title fw-bold">Quick Actions</h5>
+        <div class="row">
+          <div class="col-md-3" *ngFor="let action of quickActions">
+            <a [routerLink]="action.link" class="btn btn-light shadow-sm w-100 p-3 mb-3 d-flex align-items-center justify-content-center">
+              <i class="bi {{ action.icon }} me-2 fs-4"></i> {{ action.title }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  
+    <!-- Recent Activity -->
+    <div class="card shadow-sm mt-4">
+      <div class="card-body">
+        <h5 class="card-title fw-bold">Recent Activity</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let activity of activities">
+            <span class="fw-bold">{{ activity.message }}</span>
+            <span class="text-muted d-block small">{{ activity.time }}</span>
+          </li>
+        </ul>
+        <a href="#" class="btn btn-link mt-2">View all activity</a>
+      </div>
+    </div>
+  </div>
+  
+

@@ -1,0 +1,66 @@
+.container {
+    max-width: 1400px;
+    margin-left: 370px;
+  }
+   
+  .card {
+    border-radius: 12px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .list-group-item {
+    border: none;
+    padding: 10px 15px;
+  }
+  
+  .btn-light {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .btn-light:hover {
+    background-color: #0d6efd;
+    color: white;
+  }
+  
+  .bi {
+    font-size: 20px;
+  }
+  
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .badge {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  
+
+
+  .badge {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  
+  .btn {
+    font-size: 14px;
+  }
+  
+  .table-responsive {
+    /* max-height: 500px; */
+    overflow-y: auto;
+  }
+  

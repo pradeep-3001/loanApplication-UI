@@ -1,0 +1,93 @@
+<!-- User Management -->
+
+<div class="container mt-4">
+<div class="card shadow-sm mt-4">
+    <div class="card-body">
+      <h5 class="card-title fw-bold">User Management</h5>
+      <p class="text-muted">Create, update, and manage user accounts and permissions</p>
+
+      <div class="d-flex justify-content-between mb-3">
+        <!-- <a href="#" class="btn btn-primary">Add New User</a> -->
+        <button type="button" class="btn btn-primary"  (click)="openModal()">
+            Add New User
+          </button>
+        <input type="text" class="form-control w-25" placeholder="Search users by name or email">
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>User</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Role</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>
+                <div class="d-flex align-items-center">
+                  <!-- <img [src]="user.avatar" class="rounded-circle me-2" width="40" height="40" /> -->
+                  <strong>{{ user.name }}</strong>
+                </div>
+              </td>
+              <td>{{ user.email }}</td>
+              <td><span class="badge" [ngClass]="{'bg-success': user.status === 'Active', 'bg-danger': user.status === 'Inactive'}">{{ user.status }}</span></td>
+              <td>{{ user.role }}</td>
+              <td>
+                <button class="btn btn-outline-secondary btn-sm me-1"><i class="bi bi-pencil"></i></button>
+                <button class="btn btn-outline-warning btn-sm me-1"><i class="bi bi-key"></i></button>
+                <button class="btn btn-outline-danger btn-sm" *ngIf="user.status === 'Active'"><i class="bi bi-person-dash"></i></button>
+                <button class="btn btn-outline-success btn-sm" *ngIf="user.status === 'Inactive'"><i class="bi bi-person-check"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <nav>
+        <ul class="pagination justify-content-end">
+          <li class="page-item disabled"><a class="page-link">Previous</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal (Shown Only If isOpen is True) -->
+<div *ngIf="isOpen" class="modal-overlay">
+  <div class="modal-box">
+    <h3>Add User</h3>
+    <button class="close-btn" (click)="closeModal()">✖</button>
+
+    <form (ngSubmit)="onSubmit()">
+      <label>User:</label>
+      <input type="text" [(ngModel)]="user.name" name="name" required class="form-control">
+
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="user.email" name="email" required class="form-control">
+
+      <label>Password :</label>
+      <input type="password" [(ngModel)]="user.password" name="password" required class="form-control">
+
+      <label>Status:</label>
+      <select [(ngModel)]="user.status" name="status" class="form-control">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+
+      <label>Role:</label>
+      <select [(ngModel)]="user.role" name="role" class="form-control">
+        <option value="Admin">Admin</option>
+        <option value="Maker">Maker</option>
+        <option value="Checker">Checker</option>
+      </select>
+    </form>
+    <button type="submit" class="btn btn-primary w-100 mt-3" (click)="onSubmit()">Submit</button>
+  </div>
+</div>

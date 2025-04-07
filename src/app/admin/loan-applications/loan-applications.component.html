@@ -1,0 +1,58 @@
+
+<div class="container mt-4">
+    
+  
+    <!-- Loan Application Progress -->
+    <div class="card shadow-sm mt-4">
+      <div class="card-body">
+        <h5 class="card-title fw-bold">Loan Application Progress</h5>
+        <p class="text-muted">Last 7 days - Recent Applications (12 Active)</p>
+  
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead class="table-blue">
+              <tr>
+                <th>Application ID</th>
+                <th>Applicant</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Submitted</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let app of loanApplications">
+                <td>{{ app.id }}</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <span class="avatar bg-primary text-white me-2">{{ app.initials }}</span>
+                    <div>
+                      <strong>{{ app.name }}</strong>
+                      <br />
+                      <small class="text-muted">{{ app.email }}</small>
+                    </div>
+                  </div>
+                </td>
+                <td>{{ app.category }}</td>
+                <td>
+                  <span [class]="">{{ app.status }}</span>
+                </td>
+                <td>{{ app.submitted }}</td>
+                <td><a href="#" class="btn btn-primary btn-sm">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <nav>
+          <ul class="pagination justify-content-end">
+            <li class="page-item disabled"><a class="page-link">Previous</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  
+ 

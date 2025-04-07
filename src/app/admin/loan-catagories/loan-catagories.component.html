@@ -1,0 +1,141 @@
+
+<div class="container mt-4">
+    <h2 class="fw-bold">Loan Categories</h2>
+    <p class="text-muted">Manage loan categories and their requirements</p>
+  
+    <div class="d-flex justify-content-between mb-3">
+      <button class="btn btn-primary my-4" data-bs-toggle="modal" data-bs-target="#loanFormModal">
+        Add New Category
+      </button>
+      <input type="text" class="form-control w-25" placeholder="Search loan categories">
+    </div>
+  
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th>Loans</th>
+            <th>Interest Rate</th>
+            <th>Term Range</th>
+            <th>Min Amount</th>
+            <th>Max Amount</th>
+            <th>Required Documents</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of loanCategories">
+            <td><strong>{{ category.name }}</strong></td>
+            <td><span class="badge bg-success">{{ category.status }}</span></td>
+            <td>{{ category.created }}</td>
+            <td>{{ category.loans }} loans</td>
+            <td>{{ category.interestRate }}</td>
+            <td>{{ category.termRange }}</td>
+            <td>{{ category.minAmount }}</td>
+            <td>{{ category.maxAmount }}</td>
+            <td>
+              <ul class="list-unstyled">
+                <li *ngFor="let doc of category.documents">✔ {{ doc.value }}</li>
+              </ul>
+            </td>
+            <td>
+              <button class="btn btn-outline-secondary btn-sm me-1"><i class="bi bi-pencil"></i></button>
+              <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+        <!-- Button to Open Modal -->
+    </div>
+  </div>
+  
+
+
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="loanFormModal" tabindex="-1" aria-labelledby="loanFormModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loanFormModalLabel">Add New Category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <form #loanForm="ngForm" class="modal-body">
+        <div class="row g-3">
+
+          <div class="col-md-6">
+            <label class="form-label">Category</label>
+            <input type="text" name="name" [(ngModel)]="loan.name" class="form-control" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Status</label>
+            <select name="status" [(ngModel)]="loan.status" class="form-select" required>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Created</label>
+            <input type="text" name="created" [(ngModel)]="loan.created" class="form-control">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Loans</label>
+            <input type="number" name="loans" [(ngModel)]="loan.loans" class="form-control">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Interest Rate</label>
+            <input type="text" name="interestRate" [(ngModel)]="loan.interestRate" class="form-control">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Term Range</label>
+            <input type="text" name="termRange" [(ngModel)]="loan.termRange" class="form-control">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Min Amount</label>
+            <input type="text" name="minAmount" [(ngModel)]="loan.minAmount" class="form-control">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Max Amount</label>
+            <input type="text" name="maxAmount" [(ngModel)]="loan.maxAmount" class="form-control">
+          </div>
+
+          <!-- Required Documents -->
+          <div class="col-12">
+            <label class="form-label">Required Documents</label>
+          
+            <div *ngFor="let doc of loan.documents; let i = index; trackBy: trackByIndex" class="input-group mb-2">
+              <input
+                [(ngModel)]="doc.value"
+                name="document{{i}}"
+                type="text"
+                class="form-control"
+                required
+              />
+              <button type="button" class="btn btn-outline-danger" (click)="removeDocument(i)">Remove</button>
+            </div>
+          
+            <button type="button" class="btn btn-outline-primary btn-sm" (click)="addDocument()">+ Add Document</button>
+          </div>
+          
+
+        </div>
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button [disabled]="!loanForm.valid" type="button" class="btn btn-primary" (click)="saveLoan()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
