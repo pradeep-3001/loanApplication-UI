@@ -1,0 +1,42 @@
+.container {
+    max-width: 1400px;
+    margin-left: 370px;
+  }
+  
+  .card {
+    /* border-radius: 12px; */
+    /* color: whitesmoke; */
+    transition: transform 0.2s ease-in-out;
+    /* background-color: rgb(95, 95, 230); */
+    padding: 0px;
+  }
+
+  .mt-4 {
+    margin-top: 0px !important;
+  }
+ 
+  .status-badge {
+    font-size: 0.75rem;
+    padding: 0.4em 0.6em;
+  }
+  
+  .border-start {
+    border-left-width: 6px !important;
+  }
+  
+  .border-pending {
+    border-left-color: orange !important;
+    color: #f57c00;
+  }
+  
+  .border-approved {
+    border-left-color: #28a745 !important;
+    color: #28a745;
+  }
+  
+  .border-rejected {
+    border-left-color: #dc3545 !important;
+    color: #dc3545;
+  }
+  
+  

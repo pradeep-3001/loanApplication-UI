@@ -24,8 +24,13 @@ export class UserManagementComponent {
     role: 'Admin'
   };
 
+  edit=false;
+
   constructor(private userService:UserService){}
 
+  editModel(){
+    this.edit = true;
+  }
 
   ngOnInit(){
 

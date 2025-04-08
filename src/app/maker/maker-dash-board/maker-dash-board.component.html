@@ -1,0 +1,166 @@
+
+
+<div class="container mt-4">
+
+    <h2>Maker Dashboard</h2>
+
+    <!-- Statistics Cards -->
+  <div class="row">
+    <div class="col-md-3" *ngFor="let stat of stats">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold">{{ stat.title }}</h5>
+          <p class="display-5 fw-bold ">{{ stat.count }}</p>
+          <p class="display fw-bold" style="color: orange; font-size: 20px;">Status : {{ stat.status }}</p>
+          
+          <!-- <a [routerLink]="stat.link" class="btn btn-outline-primary btn-sm">{{ stat.button }}</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: space-between;">
+
+    <div>
+        <h2 class="fw-bold">Recent Applications</h2>
+        <p class="text-muted">Manage loan categories and their requirements</p>
+      
+    </div>
+   
+  <div class="d-flex justify-content-between mb-3">
+    <button class="btn btn-primary my-4" data-bs-toggle="modal" data-bs-target="#loanFormModal">
+      Add New Category
+    </button>
+    <!-- <input type="text" class="form-control w-25" placeholder="Search loan categories"> -->
+  </div>
+
+  </div>
+  
+  
+
+  <!-- <div class="container my-4"> -->
+    <!-- <h2 class="mb-4 fw-bold">Recent Applications</h2> -->
+  
+    <!-- <div class="row g-4">
+      Application Card
+      <div class="col-md-6 col-lg-4" *ngFor="let app of applications">
+        <div class="card shadow-sm h-100 border-start border-4" [ngClass]="getStatusClass(app.status)">
+          <div class="card-body">
+            <h5 class="card-title mb-1 fw-semibold">{{ app.title }} - <span class="text-muted">${{ app.amount }}</span></h5>
+            <span class="badge rounded-pill status-badge mb-2" [ngClass]="getStatusClass(app.status)">{{ app.status }}</span>
+  
+            <ul class="list-unstyled mb-2 small">
+              <li><strong>Submitted:</strong> {{ app.submitted }}</li>
+              <li *ngIf="app.review || app.approved || app.rejected">
+                <strong>{{ app.status === 'Pending' ? 'Note' : (app.status === 'Approved' ? 'Approved' : 'Rejected') }}:</strong> 
+                {{ app.review || app.approved || app.rejected }}
+              </li>
+              <li><strong>Documents:</strong> {{ app.documents }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  <!-- </div> -->
+  
+
+  <div class="card shadow-sm mt-4 p-0">
+
+    <div class="card shadow-sm mt-4" style="padding: 20px;">
+
+        <div style="display: flex; justify-content: space-between;">
+            <h4 style="color: blue;">
+                Personal Loan
+            </h4>
+            <p style="padding: 6px; background-color: orangered; border-radius: 5px;color: whitesmoke;font-weight: bold;">
+                pending
+            </p>
+        </div>
+
+        <div style="display: flex; justify-content:space-between; color:rgb(87, 85, 85)">
+           <div style="display: flex; justify-content:space-evenly">
+            <strong>Submitted:</strong> on April 20 2025
+           <p style="margin-left: 20px;"><strong>Awaiting For Checkers review   </strong></p> 
+           </div>
+           <div>
+            <p style="font-size: 15px;">3 Documents</p>
+           </div>
+        </div>
+        
+    </div>
+
+    <div class="card shadow-sm mt-4" style="padding: 30px;">
+
+        <div style="display: flex; justify-content: space-between;">
+            <h3 style="color: blue;">
+                Personal Loan
+            </h3>
+            <p>
+                pending
+            </p>
+        </div>
+
+        <div style="display: flex; justify-content:flex-start;">
+            <strong>Submitted:</strong> on April 20 2025
+            <strong>Documents:</strong> 4 documents
+        </div>
+
+    </div>
+    <div class="card shadow-sm mt-4" style="padding: 30px;">
+
+        <div style="display: flex; justify-content: space-between;">
+            <h3 style="color: blue;">
+                Personal Loan
+            </h3>
+            <p>
+                pending
+            </p>
+        </div>
+
+        <div style="display: flex; justify-content:flex-start;">
+            <strong>Submitted:</strong> on April 20 2025
+            <strong>Documents:</strong> 4 documents
+        </div>
+
+    </div>
+    <div class="card shadow-sm mt-4" style="padding: 30px;">
+
+        <div style="display: flex; justify-content: space-between;">
+            <h3 style="color: blue;">
+                Personal Loan
+            </h3>
+            <p>
+                pending
+            </p>
+        </div>
+
+        <div style="display: flex; justify-content:flex-start;">
+            <strong>Submitted:</strong> on April 20 2025
+            <strong>Documents:</strong> 4 documents
+        </div>
+
+    </div>
+    <div class="card shadow-sm mt-4" style="padding: 30px;">
+
+        <div style="display: flex; justify-content: space-between;">
+            <h3 style="color: blue;">
+                Personal Loan
+            </h3>
+            <p>
+                pending
+            </p>
+        </div>
+
+        <div style="display: flex; justify-content:flex-start;">
+            <strong>Submitted:</strong> on April 20 2025
+            <strong>Documents:</strong> 4 documents
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+

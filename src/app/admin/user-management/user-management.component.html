@@ -11,6 +11,10 @@
         <button type="button" class="btn btn-primary"  (click)="openModal()">
             Add New User
           </button>
+
+          <button (click)="editModel()" > Edit User</button>
+
+         
         <input type="text" class="form-control w-25" placeholder="Search users by name or email">
       </div>
 
@@ -90,4 +94,8 @@
     </form>
     <button type="submit" class="btn btn-primary w-100 mt-3" (click)="onSubmit()">Submit</button>
   </div>
+</div>
+
+<div *ngIf="edit" class="edit-model">
+  <h2>Edit Model</h2>
 </div>

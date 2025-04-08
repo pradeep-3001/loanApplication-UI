@@ -1,0 +1,40 @@
+.container {
+    max-width: 1400px;
+    margin-left: 370px;
+  }
+
+  .card {
+    border-radius: 12px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+
+
+  .upload-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .preview-image {
+    max-width: 300px;
+    margin: 20px 0;
+  }
+  
+  .upload-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .upload-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .message {
+    margin-top: 20px;
+    color: #28a745;
+  }

@@ -2,7 +2,7 @@
 .sidebar {
     width: 320px;
     height: 100vh;
-    background: #212529;
+    background: #29292a;
     color: white;
     position: fixed;
     left: 0;
@@ -87,7 +87,7 @@
   
   .sidebar-menu li a:hover,
   .sidebar-menu li a.active {
-    background: #495057;
+    background: #1272d2;
   }
   
   /* Logout Button */
@@ -108,4 +108,5 @@
   .sidebar-footer .btn i {
     margin-right: 8px;
   }
+  
   

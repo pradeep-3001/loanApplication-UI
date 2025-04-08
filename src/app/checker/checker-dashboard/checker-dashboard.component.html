@@ -1,0 +1,28 @@
+
+
+
+  <div class="container my-4"> 
+    <h2 class="mb-4 fw-bold">Recent Applications</h2> 
+  
+     <div class="row g-4">
+      Application Card
+      <div class="col-md-6 col-lg-4" *ngFor="let app of applications">
+        <div class="card shadow-sm h-100 border-start border-4" [ngClass]="getStatusClass(app.status)">
+          <div class="card-body">
+            <h5 class="card-title mb-1 fw-semibold">{{ app.title }} - <span class="text-muted">${{ app.amount }}</span></h5>
+            <span class="badge rounded-pill status-badge mb-2" [ngClass]="getStatusClass(app.status)">{{ app.status }}</span>
+  
+            <ul class="list-unstyled mb-2 small">
+              <li><strong>Submitted:</strong> {{ app.submitted }}</li>
+              <li *ngIf="app.review || app.approved || app.rejected">
+                <strong>{{ app.status === 'Pending' ? 'Note' : (app.status === 'Approved' ? 'Approved' : 'Rejected') }}:</strong> 
+                {{ app.review || app.approved || app.rejected }}
+              </li>
+              <li><strong>Documents:</strong> {{ app.documents }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

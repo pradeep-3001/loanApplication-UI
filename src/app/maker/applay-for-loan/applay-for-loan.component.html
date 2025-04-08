@@ -1,0 +1,139 @@
+<div class="container mt-4">
+
+    <h2 class="modal-title" id="loanFormModalLabel">Applay For New Loan</h2>
+    <div class="card shadow-sm mt-4">
+
+        <div  id="loanFormModal" tabindex="-1" aria-labelledby="loanFormModalLabel" aria-hidden="true">
+            <div class=" " style="padding: 10px;">
+              <div class="">
+                <div class="modal-header">
+                 
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+          
+                <form #loanForm="ngForm" class="modal-body">
+                  <div class="row g-3">
+          
+                    <div class="col-md-6">
+                      <label class="form-label">select loan Category</label>
+                      <input type="text" name="name" [(ngModel)]="loan.name" class="form-control" required>
+                    </div>
+          
+                    <!-- <div class="col-md-6">
+                      <label class="form-label">Status</label>
+                      <select name="status" [(ngModel)]="loan.status" class="form-select" required>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                      </select>
+                    </div> -->
+          
+                    
+                    <!-- <div class="col-md-6">
+                      <label class="form-label">Loans</label>
+                      <input type="number" name="loans" [(ngModel)]="loan.loans" class="form-control">
+                    </div> -->
+          
+                    <div class="col-md-6">
+                      <label class="form-label">Interest Rate</label>
+                      <input type="text" name="interestRate" [(ngModel)]="loan.interestRate" class="form-control">
+                    </div>
+          
+                    <div class="col-md-6">
+                      <label class="form-label">Term Range</label>
+                      <input type="text" name="termRange" [(ngModel)]="loan.termRange" class="form-control">
+                    </div>
+          
+                    <div class="col-md-6">
+                      <label class="form-label">Min Amount</label>
+                      <input type="text" name="minAmount" [(ngModel)]="loan.minAmount" class="form-control">
+                    </div>
+          
+                    <div class="col-md-6">
+                      <label class="form-label">Max Amount</label>
+                      <input type="text" name="maxAmount" [(ngModel)]="loan.maxAmount" class="form-control">
+                    </div>
+          
+                    <!-- Required Documents -->
+
+                    <h4 class="mb-4 fw-bold">Upload Required Documents</h4>
+
+                    <!-- <div class="row g-3">
+    
+                        <div class="col-12">
+                          <label class="form-label fw-semibold">Proof of Identity</label>
+                          <input type="file" class="form-control file-input" accept=".pdf,image/*" />
+                        </div>
+                    
+                        <div class="col-12">
+                          <label class="form-label fw-semibold">Cost of Attendance Details</label>
+                          <input type="file" class="form-control file-input" accept=".pdf,image/*" />
+                        </div>
+                    
+                        <div class="col-12">
+                          <label class="form-label fw-semibold">Academic Records</label>
+                          <input type="file" class="form-control file-input" accept=".pdf,image/*" />
+                        </div>
+                    
+                        <div class="col-12">
+                          <label class="form-label fw-semibold">Co-signer Details</label>
+                          <input type="file" class="form-control file-input" accept=".pdf,image/*" />
+                        </div>
+                    
+                        <div class="col-12">
+                          <button class="btn btn-primary mt-3 px-4">Submit</button>
+                        </div>
+                    
+                      </div>                     -->
+          
+                  </div>
+                  <div *ngFor="let doc of loan.documents" class="mb-3">
+                    <label class="form-label">{{ doc.label }}</label>
+                    <input type="file" name="image"
+                           class="form-control" [(ngModel)]="doc.value"
+                           (change)="onFileChange($event, doc.field)"
+                           accept=".pdf,image/*" />
+                  </div>
+                  
+                  <button (click)="submitForm()" class="btn btn-primary mt-3">Submit</button>
+
+                  <div class="upload-container">
+                    <h2>Upload Image</h2>
+                    
+                    <input type="file" name="image"
+                           (change)="onFileSelected($event)" 
+                           accept="image/*" 
+                           #fileInput>
+                    
+                    <div *ngIf="selectedFile" class="preview">
+                      <img [src]="previewUrl" alt="Preview" class="preview-image">
+                    </div>
+                    
+                    <button (click)="uploadImage()" 
+                            [disabled]="!selectedFile" 
+                            class="upload-btn">
+                      Upload
+                    </button>
+                    
+                    <div *ngIf="uploadMessage" class="message">
+                      {{ uploadMessage }}
+                    </div>
+                  </div>
+                  
+
+                </form>
+          
+                <div class="modal-footer">
+
+
+                    
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button [disabled]="!loanForm.valid" type="button" class="btn btn-primary" >Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+</div>
+
